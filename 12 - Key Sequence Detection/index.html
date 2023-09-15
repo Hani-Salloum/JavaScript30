@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <style>
+      body {
+        margin: 0;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #eee;
+      }
+      div {
+        font-size: 40px;
+        margin-top: 100px;
+      }
+      span {
+        background-color: #ffc600;
+      }
+    </style>
+    <script type="text/javascript" src="./cornify.js"></script>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <div>The password is <span>wesbos</span></div>
+    <script>
+      const passwordElem = document.querySelector("span");
+      const password = "hanzi";
+      
+      const arr = [];
+
+      window.addEventListener("keyup", (e) => {
+        arr.push(e.key);
+        arr.splice(-password.length, arr.length - password.length);
+        if(arr.join("") === password) {
+          console.log("ding")
+          cornify_add();
+        }
+        console.log(arr);
+      });
+
+      passwordElem.textContent = password;
+    </script>
+  </body>
+</html>
